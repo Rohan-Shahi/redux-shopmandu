@@ -11,6 +11,7 @@
 .navbar .container-fluid{
     max-width: 1250px;
     padding: 0.3rem 0rem;
+    /* background-color: rgb(96, 194, 96); */
 }
 
 .navbar-brand{
@@ -123,6 +124,14 @@
 
 .cart-bottom button{
     background: green;
+    color: white;
+    padding: 0.3rem 0.678rem;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.checkout-btn-disabled{
+    background: rgb(109, 236, 109);
     color: white;
     padding: 0.3rem 0.678rem;
     border: none;

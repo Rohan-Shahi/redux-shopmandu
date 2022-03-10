@@ -5,7 +5,6 @@ import "./style.css";
 
 export default function ProductCard(props) {
 
-
   const [productCount,setProductCount] = useState(0);
 
   const {productName,price,stock,imgName,updateCart,product,productDate,id} = props;
@@ -32,7 +31,6 @@ export default function ProductCard(props) {
           src = {imgSrc} 
           className="card-img-top"
           alt="laptop"
-          
         />
       </div>
       </Link>

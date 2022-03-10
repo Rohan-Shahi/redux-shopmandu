@@ -2,6 +2,10 @@ import React from "react";
 import Navbar from "./Navbar";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { setUserCart } from "../redux/actions/cartAction";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setCountItem } from "../redux/actions/itemCountAction";
 
 const initialValues = {
   name: "",
@@ -10,24 +14,36 @@ const initialValues = {
   email: "",
 };
 
-const onSubmit = (values) => {
-  console.log(values);
-};
+// const onSubmit = (values) => {
+//   //   dispatch(setUserCart([]));
+//   //   navigate('/');
+// };
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required field"),
   location: Yup.string().required("Location is required field"),
-  phone: Yup.string('Enter valid number').required("Phone is required field").min(10,'Wrong number'),
+  phone: Yup.string("Enter valid number")
+    .required("Phone is required field")
+    .min(10, "Wrong number"),
   email: Yup.string()
     .email("Enter a valid email")
     .required("Email is required field"),
 });
 
 function Checkout() {
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+ 
+
   const { values, touched, errors, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues,
-      onSubmit,
+      onSubmit: (values) => {
+        dispatch(setUserCart([]));
+        navigate("/");
+        dispatch(setCountItem(0))
+      },
       validationSchema,
     });
 

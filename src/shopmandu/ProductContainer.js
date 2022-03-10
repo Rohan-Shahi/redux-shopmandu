@@ -57,7 +57,6 @@ export default function ProductContainer(props) {
     let minValue = document.getElementById("filter-min").value;
     let maxValue = document.getElementById("filter-max").value;
     let filteredProduct;
-    console.log(filterProd);
 
     if (selectorValue !== "") {
       if (selectorValue !== null && minValue !== "" && maxValue !== "") {
@@ -74,7 +73,7 @@ export default function ProductContainer(props) {
           return product.category[1] === selectorValue;
         });
       }
-      console.log(filteredProduct);
+      // console.log(filteredProduct);
       dispatch(setProductList(filteredProduct));
     }
   };
@@ -132,7 +131,9 @@ export default function ProductContainer(props) {
 
               <div className="card-footer bg-transparent border-dark cart-bottom">
                 <p>Total Amount: Rs {total}</p>
-                <button className="checkout-btn">
+                {
+                  countItem > 0 ? 
+                  <button className="checkout-btn" >
                   <Link
                     style={{ color: "white", textDecoration: "none" }}
                     to="/checkout"
@@ -140,6 +141,15 @@ export default function ProductContainer(props) {
                     Checkout
                   </Link>
                 </button>
+                :
+
+                <button className="checkout-btn-disabled" disabled>
+                  Checkout
+               
+              </button>
+
+                }
+                
               </div>
             </div>
           </div>
