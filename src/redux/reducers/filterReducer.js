@@ -1,4 +1,4 @@
-import { bindActionCreators } from "redux"
+
 import { FILTER_PRODUCT } from "../constants/constant"
 
 const initialState = {
