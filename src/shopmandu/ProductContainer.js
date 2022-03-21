@@ -35,7 +35,7 @@ export default function ProductContainer(props) {
 
   useEffect(() => {
       dispatch(filterProduct())
-  },[])
+  })
 
   const dispatch = useDispatch();
 
